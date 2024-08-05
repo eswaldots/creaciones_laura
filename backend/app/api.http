@@ -39,3 +39,25 @@ Content-Type: application/json
 {
     "image": "batido.png"
 }
+
+### Create order
+
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "address": "123 Main St",
+    "total": 600,
+    "email": "vCqR3@example.com",
+    "date": "2013-02-14T13:15:03-08:00",
+    "status": "Pending",
+    "phone": "123456789",
+      "orderItems": [
+        {"productName":"Birthday cake",
+        "quantity":2,
+    "total":300
+},{"productName":"Banana cake",
+"quantity":1,
+"total":300}]
+}

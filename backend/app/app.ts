@@ -1,6 +1,7 @@
 import express, { Application, Response, Request } from "express";
 import dotenv from "dotenv"
 import { ProductsRouter } from './routes/productsRouter'
+import { OrdersRouter } from "./routes/ordersRouter";
 
 const app : Application = express();
 
@@ -16,6 +17,7 @@ app.use('/static', (req: Request, res: Response) => {
     res.sendFile(__dirname + '/src/public' + req.path);
 })
 
+app.use('/orders', OrdersRouter)
 app.use('/products', ProductsRouter)
 
 app.use((req: Request, res: Response) => {
