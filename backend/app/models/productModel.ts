@@ -1,6 +1,17 @@
 import { PrismaClient } from "@prisma/client";
+import * as dotenv from "dotenv";
 
 const prisma: any = new PrismaClient();
+
+dotenv.config();
+
+interface Product {
+	name: string;
+	price: number;
+	description: string;
+	category: string;
+	image: string;
+}
 
 export class ProductModel {
 	static async getAllProducts(query: string): Promise<string[]> {
@@ -14,13 +25,30 @@ export class ProductModel {
 					},
 				},
 			});
+			const productsWithURL = products.map((product: any) => ({
+				...product,
+				image: `${process.env.BASE_URL}/images/${product.image}`,
+			}));
 
-			return products;
+			return productsWithURL;
 		}
 
-		const products: string[] = await prisma.product.findMany();
+		const products : string[] = await prisma.product.findMany();
+		const productsWithURL = products.map((product : any) => ({
+			...product,
+			image: `${process.env.BASE_URL}/images/${product.image}`,
+		}));
+		return productsWithURL;
+	}
 
-		return products;
+	static async getProductsById(id: string): Promise<string> {
+		const product = await prisma.product.findUnique({
+			where: {
+				id: id,
+			},
+		});
+
+		return product;
 	}
 
 	static async getAllCategories(): Promise<string[]> {
@@ -71,5 +99,45 @@ export class ProductModel {
 		});
 
 		return newCategory;
+	}
+
+	static async updateProduct(id: number, input: any) {
+		const updatedProduct = await prisma.product.update({
+			where: {
+				id: id,
+			},
+			data: {
+				...input,
+			},
+		});
+		console.log(updatedProduct, 'hola');
+		return updatedProduct;
+	}
+
+	static async updateCategory(id: string, input: any) {
+		const updatedCategory = await prisma.category.update({
+			where: {
+				id: id,
+			},
+			data: {
+				...input,
+			},
+		});
+	}
+
+	static async deleteProduct(id: string) {
+		const deletedProduct = await prisma.product.delete({
+			where: {
+				id: id,
+			},
+		});
+	}
+
+	static async deleteCategory(id: string) {
+		const deletedProduct = await prisma.category.delete({
+			where: {
+				id: id,
+			},
+		});
 	}
 }

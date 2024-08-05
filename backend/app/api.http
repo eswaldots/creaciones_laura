@@ -30,3 +30,12 @@ Content-Type: application/json
 {
 	"name": "Ice-Creams"
 }
+
+### Update product
+
+PATCH http://localhost:3000/products/1
+Content-Type: application/json
+
+{
+    "image": "batido.png"
+}
