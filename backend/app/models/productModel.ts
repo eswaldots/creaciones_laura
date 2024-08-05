@@ -41,11 +41,10 @@ export class ProductModel {
 		return productsWithURL;
 	}
 
-	static async getProductsById(id: string): Promise<string> {
+	static async getProductsById(id: number): Promise<string> {
 		const product = await prisma.product.findUnique({
 			where: {
-				id: id,
-			},
+				id: id,			},
 		});
 
 		return product;

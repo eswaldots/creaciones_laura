@@ -13,7 +13,7 @@ export class ProductController {
 
 	static async getProductsById(req: Request, res: Response) {
 		try {
-			const products = await ProductModel.getProductsById(req.params.id);
+			const products = await ProductModel.getProductsById(Number(req.params.id));
 
 			res.status(200).json(products);
 		} catch (error) {
