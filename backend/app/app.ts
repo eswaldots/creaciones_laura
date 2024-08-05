@@ -1,7 +1,8 @@
 import express, { Application, Response, Request } from "express";
-import dotenv from "dotenv"
 import { ProductsRouter } from './routes/productsRouter'
 import { OrdersRouter } from "./routes/ordersRouter";
+import { statusChecker } from "./middlewares/statusChecker";
+import dotenv from "dotenv"
 
 const app : Application = express();
 
@@ -9,6 +10,7 @@ const defaultPort = process.env.PORT ?? 1234
 
 dotenv.config();
 app.use(express.json());
+app.use(statusChecker);
 app.disable('x-powered-by')
 
 // Serve static files of products
