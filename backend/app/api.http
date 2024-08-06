@@ -4,7 +4,11 @@ GET http://localhost:3000/products
 
 ### Get product by category
 
-GET http://localhost:3000/products?category=Cakes
+GET http://localhost:3000/products?category=Cheesecakes
+
+### Get product by id
+
+GET http://localhost:3000/products/1
 
 ### Get all categories
 
@@ -16,29 +20,33 @@ POST http://localhost:3000/products
 Content-Type: application/json
 
 {  
-         "name":"Avocado cake",
-		 "description":"Avocado cake is a cake prepared using avocado as a primary ingredient, together with other typical cake ingredients. The avocados may be mashed, and may be used as an ingredient in cake batter, in cake toppings and alone atop a cake. Cake variations include raw avocado cake, avocado brownies and avocado cheesecake. Raw, uncooked versions of avocado cake can be high in vitamin E and essential fatty acids, which are derived from avocado. Avocado-based cake toppings include avocado fool and avocado crazy.",
-         "price":300,
-         "category":"Cakes"
-      };
+  "category": "Cheesecakes",
+"name":"Lemon cheesecake",
+         "previewDescription":"A cheesecake made of lemon",
+     "detailDescription":"Cheesecake is a sweet dessert consisting of one or more layers. The main, and thickest layer, consists of a mixture of soft, fresh cheese (typically cream cheese or ricotta), eggs, and sugar; if there is a bottom layer it often consists of a crust or base made from crushed cookies (or digestive biscuits), graham crackers, pastry, or sponge cake. It may be baked or unbaked (usually refrigerated). Cheesecake is usually sweetened with sugar and may be flavored or topped with fruit, whipped cream, nuts, cookies, fruit sauce, and/or chocolate syrup. Cheesecake can be prepared in many flavors, such as strawberry, pumpkin, key lime, chocolate, Oreo, chestnut, or toffee.",
+         "image":"lemoncheese_cake.jpg",
+         "price": 15
+      }
 
 ### Create category
 
 POST http://localhost:3000/products/categories
 Content-Type: application/json
-
-{
-	"name": "Ice-Creams"
-}
+{  
+         "name":"Avocado cake",
+         "previewDescription":"Avocado cake is a cake prepared using avocado",
+     "detailDescription":"Avocado cake is a cake prepared using avocado as a primary ingredient, together with other typical cake ingredients. The avocados may be mashed, and may be used as an ingredient in cake batter, in cake toppings and alone atop a cake. Cake variations include raw avocado cake, avocado brownies and avocado cheesecake. Raw, uncooked versions of avocado cake can be high in vitamin E and essential fatty acids, which are derived from avocado. Avocado-based cake toppings include avocado fool and avocado crazy.",
+         "image":"avocado_cake.jpg"
+      },
 
 ### Update product
 
-PATCH http://localhost:3000/products/1
+PATCH http://localhost:3000/products/4
 Content-Type: application/json
 
-{
-    "image": "batido.png"
-}
+{  
+         "image":"carrot_cake.jpg"
+      }
 
 ### Get orders
 

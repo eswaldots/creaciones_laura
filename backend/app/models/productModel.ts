@@ -61,20 +61,24 @@ export class ProductModel {
 			{
 				name: string;
 				price: number;
-				description: string;
+				detailDescription: string;
+				previewDescription: string;
 				category: string;
+				image: string;
 			},
 		],
 	) {
 		try {
 			for (let i = 0; i < input.length; i++) {
-				const { name, price, category, description } = input[i];
+				const { name, price, category, detailDescription, previewDescription, image } = input[i];
 
 				const newProduct = await prisma.product.create({
 					data: {
 						name: name,
 						price: price,
-						description: description,
+						detailDescription: detailDescription,
+						previewDescription: previewDescription,
+						image: image,
 						category: {
 							connect: { name: category },
 						},
@@ -84,7 +88,8 @@ export class ProductModel {
 				return newProduct;
 			}
 		} catch (error) {
-			return error;
+			console.log(error)
+			return {message: 'Unexpected error'};
 		}
 	}
 

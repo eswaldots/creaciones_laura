@@ -15,7 +15,7 @@ app.disable('x-powered-by')
 
 // Serve static files of products
 
-app.use('/static', (req: Request, res: Response) => {
+app.use('/images', (req: Request, res: Response) => {
     res.sendFile(__dirname + '/src/public' + req.path);
 })
 
