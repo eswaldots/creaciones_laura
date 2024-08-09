@@ -1,17 +1,22 @@
 "use client";
+
 import React from "react";
-import { StickyScroll } from "@/components/ui/sticky-scroll-reveal.tsx";
+import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import Image from "next/image";
  
 const content = [
   {
-    title: "Collaborative Editing",
+    title: "Avocado Cake",
     description:
       "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
     content: (
-      <div className="h-full w-full  flex items-center justify-center text-white">
-        hola
-      </div>
+              <Image
+          src="/categories/cake.jpeg"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
     ),
   },
   {
@@ -54,8 +59,8 @@ const content = [
 
 export default function BestProducts() {
   return (
-    <div className="flex flex-col text-center sm:px-36 gap-12">
-    <h1 className='text-foreground text-5xl font-bold'>Our best sellers</h1>
+    <div className="flex flex-col w-screen text-center sm:px-36 px-12 gap-12">
+    <span className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-accent">Our best sellers</span>
       <StickyScroll content={content} />
     </div>
   );

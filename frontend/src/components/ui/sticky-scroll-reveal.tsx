@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -47,31 +47,15 @@ export const StickyScroll = ({
     "var(--orange-100)",
     "var(--red-100)"
   ];
-  const linearGradients = [
-    "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
-    "linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))",
-    "linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))",
+
+  const buttonColors = [
+    "var(--teal-500)",
+    "var(--yellow-500)",
+    "var(--orange-500)",
+    "var(--red-500)"
   ];
 
-  const [backgroundGradient, setBackgroundGradient] = useState(
-    linearGradients[0]
-  );
-
-  useEffect(() => {
-    setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
-  }, [activeCard]);
-
-  return (
-    <motion.div
-      animate={{
-        backgroundColor: backgroundColors[activeCard % backgroundColors.length],
-      }}
-      className="h-[30rem] overflow-y-auto flex justify-center gap-12 rounded-md p-10"
-      ref={ref}
-    >
-      <div className="div relative flex text-left items-start px-4">
-        <div className="max-w-2xl">
-          {content.map((item, index) => (
+  const listContent = useMemo(() => content.map((item, index) => (
             <div key={item.title + index} className="flex flex-col text-pretty text-foreground gap-6 my-20">
               <motion.h2
                 initial={{
@@ -97,15 +81,29 @@ export const StickyScroll = ({
               </motion.p>
               <div className="flex flex-row items-center gap-6">
               <strong className='text-xl'>100$</strong>
-              <Button size='lg'  >Shop now</Button>
+                                    <Button size='lg' style={{
+                backgroundColor: buttonColors[activeCard % backgroundColors.length]
+              }} >Shop now</Button>  
               </div>
             </div>
-          ))}
-          <div className="h-40" />
+          )), [buttonColors])
+
+  console.log(backgroundColors[activeCard % backgroundColors.length]);
+  return (
+    <motion.div
+          animate={{
+        backgroundColor: backgroundColors[activeCard % backgroundColors.length],
+      }}
+      className="h-[30rem] overflow-y-auto flex justify-center gap-12 rounded-md p-10"
+      ref={ref}
+    >
+      <div className="div relative  flex text-left items-start px-4">
+        <div className="max-w-2xl">
+        {listContent}  
+        <div className="h-40" />
         </div>
       </div>
-      <div
-        style={{ background: backgroundGradient }}
+            <div
         className={cn(
           "hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden",
           contentClassName
@@ -116,3 +114,4 @@ export const StickyScroll = ({
     </motion.div>
   );
 };
+
