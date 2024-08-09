@@ -2,13 +2,23 @@ import express, { Application, Response, Request } from "express";
 import { ProductsRouter } from './routes/productsRouter'
 import { OrdersRouter } from "./routes/ordersRouter";
 import { statusChecker } from "./middlewares/statusChecker";
+import cors from "cors"
 import dotenv from "dotenv"
 
 const app : Application = express();
 
 const defaultPort = process.env.PORT ?? 1234
 
+const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS
+
 dotenv.config();
+
+const corsOptions = {
+	origin: ALLOWED_ORIGINS,
+	optionSuccessStatus: 200
+}
+
+app.use(cors(corsOptions))
 app.use(express.json());
 app.use(statusChecker);
 app.disable('x-powered-by')

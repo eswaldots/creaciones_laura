@@ -16,7 +16,7 @@ GET http://localhost:3000/products/categories
 
 ### Create product
 
-POST http://localhost:3000/products
+POST http://localhost:3001/products
 Content-Type: application/json
 
 {  
