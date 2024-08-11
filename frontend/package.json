@@ -12,6 +12,7 @@
     "@headlessui/react": "^2.1.2",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.1",
     "@react-three/drei": "^9.109.2",
@@ -26,6 +27,7 @@
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.52.2",
     "tailwind-merge": "^2.4.0",
     "three": "^0.167.1",
     "zustand": "^4.5.4"

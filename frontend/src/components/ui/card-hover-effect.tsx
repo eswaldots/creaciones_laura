@@ -29,11 +29,12 @@ export const HoverEffect = ({
 
   const updateProducts = useStore((state) => state.updateProducts);
 
-  const AddProduct = (name, quantity, total) => {
+  const AddProduct = (name: string, quantity: number, image: string,  total: number) => {
     try {
     updateProducts(
     {
       productName: name,
+      productImage: image,
       quantity: quantity,
       total: total
     }
@@ -44,8 +45,11 @@ export const HoverEffect = ({
     })
   }
 
-    catch(e) {
-      alert(e)
+    catch(error) {
+      toast({
+        title: "An error ocurred adding a item to the cart",
+        description: `Error: ${error}`
+      })
     }
   }
 
@@ -114,7 +118,7 @@ export const HoverEffect = ({
           <div className='flex flex-row gap-12 justify-end'>
           <Counter setCount={setItemCount} count={itemCount}/>
           <DialogClose asChild>
-          <Button onClick={(e) => AddProduct(item.name, itemCount, item.price * itemCount)} className='text-xl font-bold w-48 h-12'>Add to cart ${item.price * itemCount}</Button>
+          <Button onClick={(e) => AddProduct(item.name, itemCount, item.image, item.price * itemCount)} className='text-xl font-bold w-48 h-12'>Add to cart ${item.price * itemCount}</Button>
           </DialogClose>
           </div>
           </div>

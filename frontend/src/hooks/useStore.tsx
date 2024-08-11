@@ -1,6 +1,16 @@
 import { create } from "zustand"
 
-export const useStore = create((set) => ({
+interface Product {      productName: string,
+      productImage: string,
+      quantity: number,
+      total: number}
+
+interface Products {
+    products: Product[]
+    updateProducts: (products : Product) => void 
+    }
+
+export const useStore = create<Products>((set) => ({
 	products: [],
 	/*      "orderItems": [
         {"productName":"Birthday cake",
@@ -9,5 +19,5 @@ export const useStore = create((set) => ({
 },{"productName":"Banana cake",
 "quantity":1,
 "total":300}]*/
-	updateProducts: (products) => set((state) => ({products: [...state.products, products]}))
+	updateProducts: (products : Product) => set((state) => ({products: [...state.products, products]}))
 }))
