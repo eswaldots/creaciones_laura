@@ -50,6 +50,7 @@ model OrderItem {
   orderId String
   product Product @relation(fields: [productName], references: [name])
   quantity Int
+  productImage String?
   productName String
   total Int
 }

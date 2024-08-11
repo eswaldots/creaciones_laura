@@ -54,7 +54,7 @@ GET http://localhost:3000/orders
 
 ### Create order
 
-POST http://localhost:3000/orders
+POST http://localhost:3001/orders
 Content-Type: application/json
 
 {
@@ -63,7 +63,7 @@ Content-Type: application/json
     "total": 600,
     "email": "vCqR3@example.com",
     "date": "2024-08-05T17:49:26.433Z",
-    "status": "Delivered",
+    "status": "Pending",
     "phone": "123456789",
       "orderItems": [
         {"productName":"Birthday cake",

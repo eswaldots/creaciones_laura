@@ -20,7 +20,7 @@ export default function ShopBtn() {
 
 	return (
 		<>
-		<button className='opacity-80' onClick={(e) => setIsOpen(!isOpen)} onBlur={(e) => setIsOpen(false)}>
+		<button className='opacity-80' onClick={(e) => setIsOpen(!isOpen)}>
 		<ShopIcon/>
 		</button>
 		<Transition show={isOpen}
@@ -33,9 +33,9 @@ export default function ShopBtn() {
 		> 
 			<Card className={'flex flex-col opacity-100 justify-between fixed inset-x-0 mx-auto lg:inset-x-auto lg:mx-0 lg:right-36 lg:top-24 rounded-2xl z-50 h-[494px] w-full sm:w-[447px] drop-shadow-2xl bg-white'}>
 				<CardHeader className='w-full rounded-t-2xl h-12 bg-primary'/>
-				<CardContent className="flex flex-col items-start p-6 gap-6 justify-start h-full">{listProducts}</CardContent>
+				<CardContent className="flex flex-col items-start p-6 gap-6 justify-start h-full">{products.length >= 1 ? listProducts : <h1 className='text-2xl font-bold text-center'>You don't ordered anything to show</h1>}</CardContent>
 				<CardFooter className='flex flex-row justify-between'>
-					<Button onClick={(e) => router.push('/payment')} className='w-full h-12'>Pay</Button>
+					<Button onClick={(e) => {router.push('/payment'), setIsOpen(false)}} className='w-full h-12'>Pay</Button>
 				</CardFooter>
 			</Card>
 			</Transition>

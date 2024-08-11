@@ -115,7 +115,7 @@ export const HoverEffect = ({
         <DialogFooter className='fixed left-0 bottom-0 p-6 rounded-b-2xl w-full bg-white flex flex-col gap-3'>
           <div className='flex flex-col w-full gap-6'>
           <div className='w-full bg-primary h-[1px]'/>
-          <div className='flex flex-row gap-12 justify-end'>
+          <div className='flex flex-row sm:gap-12 gap-3 justify-end'>
           <Counter setCount={setItemCount} count={itemCount}/>
           <DialogClose asChild>
           <Button onClick={(e) => AddProduct(item.name, itemCount, item.image, item.price * itemCount)} className='text-xl font-bold w-48 h-12'>Add to cart ${item.price * itemCount}</Button>

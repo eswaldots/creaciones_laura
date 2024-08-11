@@ -11,7 +11,7 @@ export default function Counter({
 }) {
 
 	return (
-		<div className="flex flex-row gap-12 items-center">
+		<div className="flex flex-row sm:gap-12 gap-3 items-center">
 			<Button
 			disabled={count === 1 ? true : false}
 			onClick={(e) => setCount((count: number) => count - 1)}
