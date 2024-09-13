@@ -18,9 +18,8 @@ export const useCategories = () => {
 	}, [])
 
 	const getRooms = async () => {
-		await api
-		.get("/products/categories")
-		.then((res) => setCategories(res.data));
+		await fetch("http://127.0.0.1:1234/products/categories")
+		.then((res : {data:{string}}) => setCategories(res.data));
 	}
 
 	return categories;

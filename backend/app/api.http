@@ -1,6 +1,6 @@
 ### Get all products
 
-GET http://localhost:3000/products
+GET http://localhost:1234/products
 
 ### Get product by category
 
@@ -16,7 +16,7 @@ GET http://localhost:3000/products/categories
 
 ### Create product
 
-POST http://localhost:3001/products
+POST http://localhost:1234/products 
 Content-Type: application/json
 
 {  
@@ -28,16 +28,15 @@ Content-Type: application/json
          "price": 15
       }
 
+
 ### Create category
 
-POST http://localhost:3000/products/categories
-Content-Type: application/json
-{  
-         "name":"Avocado cake",
-         "previewDescription":"Avocado cake is a cake prepared using avocado",
-     "detailDescription":"Avocado cake is a cake prepared using avocado as a primary ingredient, together with other typical cake ingredients. The avocados may be mashed, and may be used as an ingredient in cake batter, in cake toppings and alone atop a cake. Cake variations include raw avocado cake, avocado brownies and avocado cheesecake. Raw, uncooked versions of avocado cake can be high in vitamin E and essential fatty acids, which are derived from avocado. Avocado-based cake toppings include avocado fool and avocado crazy.",
-         "image":"avocado_cake.jpg"
-      },
+POST http://localhost:1234/products/categories
+content-Type: application/json
+
+{
+  "name": "Cheesecakes"
+}
 
 ### Update product
 

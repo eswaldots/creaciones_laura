@@ -18,7 +18,7 @@ const corsOptions = {
 	optionSuccessStatus: 200
 }
 
-app.use(cors(corsOptions))
+app.use(cors())
 app.use(express.json());
 app.use(statusChecker);
 app.disable('x-powered-by')
@@ -33,7 +33,7 @@ app.use('/orders', OrdersRouter)
 app.use('/products', ProductsRouter)
 
 app.use((req: Request, res: Response) => {
-res.status(404).send('Not Found')	
+	res.status(404).send('Not Found')	
 })
 
 app.listen(defaultPort, () => {
