@@ -5,5 +5,5 @@ const FetchCategories = async () => {
 
     const categories = data.json();
 
-    return API_URL
+    return categories
 }
