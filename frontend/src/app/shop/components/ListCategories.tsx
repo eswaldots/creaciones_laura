@@ -1,16 +1,17 @@
+import Link from "next/link"
 import { SetStateAction, useMemo, useState } from "react"
 
 type props = {
 	items: Array<{name: string, id:number}>,
-	currentCategory: string,
-	setCurrentCategory: SetStateAction<string>
+	currentCategory: string | null,
 }
 
-export default function ListCategories({items, currentCategory, setCurrentCategory} : props) {
-	const listCategories = useMemo(() => items.map((item, index) => 
+export default function ListCategories({items, currentCategory} : props) {
+
+	const listCategories = items.map((item, index) => 
 		item.name === currentCategory ? <li className="flex items-center"><input type='checkbox' className='size-5' checked={true} key={item.id}/> <span className='font-semibold'>{item.name}</span></li> : 
-		<li className="flex items-center"><input className='size-5' type='checkbox' checked={false} onClick={(e) => setCurrentCategory(item.name)} key={item.id}/> <span className='font-normal opacity-50'>{item.name}</span></li>
-		), [items, currentCategory])
+		<Link href={`?search=${item.name}`} className="flex items-center"><input className='size-5' type='checkbox' checked={false} key={item.id}/> <span className='font-normal opacity-50'>{item.name}</span></Link>
+		)
 
 	return (
 		<div className='hidden sm:flex flex-col lg:w-96 gap-12'>
