@@ -1,9 +1,10 @@
-import { useStore } from "@/hooks/useStore";
+"use server";
+
 import { API_URL } from "./consts/api-url";
-import type { Product } from "./definitions/product";
 import { ProductCart } from "./definitions/product-cart";
 import { State } from "./definitions/state";
 import z from "zod";
+import { addMinutes } from "./utils";
 
 const OrderSchema = z.object({
   firstName: z
@@ -26,7 +27,15 @@ export const OrderAction = async (
   state: State,
   formData: FormData
 ) => {
-  const order = OrderSchema.safeParse(formData);
+  const data = {
+    firstName: formData.get("firstName") as string,
+    lastName: formData.get("lastName") as string,
+    address: formData.get("address") as string,
+    email: formData.get("email") as string,
+    phone: formData.get("phone") as string,
+  };
+
+  const order = OrderSchema.safeParse(data);
 
   if (!order.success) {
     return {
@@ -38,6 +47,10 @@ export const OrderAction = async (
 
   const { firstName, lastName, address, email, phone } = order.data;
 
+  const date = new Date();
+
+  const orderDate = addMinutes(date, 30);
+
   const response = await fetch(`${API_URL}/orders`, {
     method: "POST",
     headers: {
@@ -45,15 +58,17 @@ export const OrderAction = async (
     },
 
     body: JSON.stringify({
-      firstName: firstName,
-      lastName: lastName,
+      name: firstName + ' ' + lastName,
       address: address,
       email: email,
       phone: phone,
       orderItems: items,
+      status: 'Pending',
+      total: items.reduce((acc, item) => acc + item.total, 0),
+      date: orderDate,
     }),
   });
-
+console.log(response)
   if (!response.ok) {
     return {
       errors: [],

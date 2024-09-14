@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { SetStateAction, useMemo, useState } from "react"
 
 type props = {
 	items: Array<{name: string, id:number}>,

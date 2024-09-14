@@ -1,12 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { useStore } from "@/hooks/useStore";
-import { useTotal } from "@/hooks/use-total";
-import { useMemo } from "react";
+import { useFormStatus } from "react-dom";
 
 export default function PaymentDetails({ total }: { total: number }) {
-	
-	const products = useStore((state) => state.products);
 
+	const { pending } = useFormStatus();
+	
 	return (
 		<div className="flex flex-col bg-white rounded-2xl w-full sm:w-[40%] h-72 p-6 gap-6 drop-shadow-xl">
 			<section className="flex flex-col gap-3">
@@ -27,7 +25,7 @@ export default function PaymentDetails({ total }: { total: number }) {
 				disabled={total >= 1 ? false : true}
 				className="h-16 mt-3"
 			>
-				Pay now
+				{pending ? 'Loading...' : 'Pay now'}  
 			</Button>
 		</div>
 	);
