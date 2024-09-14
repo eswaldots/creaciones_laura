@@ -5,7 +5,6 @@ import Modal from "../../[id]/modal";
 
 export default async function Page({ params }: Params) {
   const product = await FetchProduct(params.id.toString());
-  console.log(product);
 
   return product ? <Modal item={product} /> : <Loader />;
 }

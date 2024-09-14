@@ -9,13 +9,12 @@ import {
   DialogHeader,
   DialogOverlay,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useStore } from "@/hooks/useStore";
-import { useToast } from "@/components/ui/use-toast";
+import { toast } from "react-toastify";
 
 interface Props {
   item: {
@@ -33,8 +32,6 @@ export default function Modal({ item }: Props) {
 
   const updateProducts = useStore((state) => state.updateProducts);
 
-  const { toast } = useToast();
-
   const addItemToCart = async (name: string, quantity: number, image: string, total: number) => {
     try {
       updateProducts(
@@ -45,13 +42,14 @@ export default function Modal({ item }: Props) {
           total: total,
         },
       );
+    
+      toast.success(`Added ${name} to cart`,
+      );
+
       router.back();
-      
+     
     } catch (error) {
-      toast({
-        title: "An error ocurred adding a item to the cart",
-        description: `Error: ${error}`,
-      });
+      toast.error("An error ocurred adding a item to the cart");
     }}
 
   return (
@@ -87,9 +85,7 @@ export default function Modal({ item }: Props) {
               <div className="w-full bg-primary h-[1px]" />
               <div className="flex flex-row sm:gap-12 gap-3 justify-end">
                 <Counter />
-                <DialogClose asChild>
                   <Button onClick={(e) => addItemToCart(item.name, 1, item.image, item.price * 1)} >Add to cart ${item.price}</Button>
-                </DialogClose>
               </div>
             </div>
           </DialogFooter>
