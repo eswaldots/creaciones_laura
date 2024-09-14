@@ -1,9 +1,11 @@
 export interface State {
-	errors?: {
-        name?: string;
-        email?: string;
-        phone?: string;
-        address?: string;
-        total?: string;
-    }
+  errors: {
+    firstName?: string[];
+    lastName?: string[];
+    address?: string[];
+    email?: string[];
+    phone?: string[];
+  };
+  message: string;
+  status?: string | undefined;
 }

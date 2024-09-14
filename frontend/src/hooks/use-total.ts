@@ -1,5 +1,3 @@
-import { X509Certificate } from "crypto";
-
 interface Product {
 	productName: string;
 	productImage: string;
