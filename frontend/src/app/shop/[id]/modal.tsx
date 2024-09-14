@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Counter from "@/components/ui/counter";
 import {
@@ -15,6 +15,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useStore } from "@/hooks/useStore";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 interface Props {
   item: {
@@ -32,25 +33,29 @@ export default function Modal({ item }: Props) {
 
   const updateProducts = useStore((state) => state.updateProducts);
 
-  const addItemToCart = async (name: string, quantity: number, image: string, total: number) => {
+  const addItemToCart = async (
+    name: string,
+    quantity: number,
+    image: string,
+    total: number
+  ) => {
     try {
-      updateProducts(
-        {
-          productName: name,
-          productImage: image,
-          quantity: quantity,
-          total: total,
-        },
-      );
-    
-      toast.success(`Added ${name} to cart`,
-      );
+      updateProducts({
+        productName: name,
+        productImage: image,
+        quantity: quantity,
+        total: total,
+      });
+
+      toast.success(`Added ${name} to cart`);
 
       router.back();
-     
     } catch (error) {
       toast.error("An error ocurred adding a item to the cart");
-    }}
+    }
+  };
+
+  const [count, setCount] = useState(1);
 
   return (
     <Dialog defaultOpen={true} open={true} onOpenChange={(e) => router.back()}>
@@ -84,8 +89,15 @@ export default function Modal({ item }: Props) {
             <div className="flex flex-col w-full gap-6">
               <div className="w-full bg-primary h-[1px]" />
               <div className="flex flex-row sm:gap-12 gap-3 justify-end">
-                <Counter />
-                  <Button onClick={(e) => addItemToCart(item.name, 1, item.image, item.price * 1)} >Add to cart ${item.price}</Button>
+                <Counter count={count} setCount={setCount} />
+                <Button
+                className='h-full'
+                onClick={(e) =>
+                    addItemToCart(item.name, count, item.image, item.price * count)
+                  }
+                >
+                  <span className="text-xl font-bold">Add to cart ${item.price * count}</span>
+                </Button>
               </div>
             </div>
           </DialogFooter>
