@@ -16,7 +16,7 @@ type ComponentProps = {
 export default function ListProducts({ items }: ComponentProps) {
 
 	return <ol className='flex flex-col items-center w-full justify-center'>
-	<Input className='h-10'/>
+	<Input className='w-full h-10'/>
 		<HoverEffect items={items}/>
 	</ol>;
 }
