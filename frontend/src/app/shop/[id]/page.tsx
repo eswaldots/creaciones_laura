@@ -1,15 +1,11 @@
-"use client"
-
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
-import { useProduct } from "@/hooks/use-product";
 import Loader from "@/components/ui/loader";
+import { FetchProduct } from "@/lib/data/fetch-product";
 
-export default function Page({params} : Params) {
-	const product = useProduct();
+export default async function Page({params} : Params) {
+	const product = await FetchProduct(params.id)
 
 	return product ? (
-		<div>{product.name}
-		<img src={product.image} />
-		</div>
+		<div>{product.name}</div>
 		) : (<Loader/>)
 }

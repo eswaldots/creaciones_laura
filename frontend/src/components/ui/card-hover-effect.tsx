@@ -7,12 +7,14 @@ import { Button } from "./button"
 import Counter from "./counter"
 import { useStore } from "@/hooks/useStore"
 import { useToast } from "@/components/ui/use-toast"
+import Link from "next/link";
 
 export const HoverEffect = ({
   items,
   className,
 }: {
   items: {
+    id: string;
     name: string;
     previewDescription: string;
     image: string;
@@ -62,7 +64,7 @@ export const HoverEffect = ({
     >
       {items.map((item, idx) => (
         <Dialog onOpenChange={(e) => setItemCount(1)}>
-        <div
+        <Link href={`/shop/${item.id}`}
           key={item?.image}
           className="relative group text-neutral-800 block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
@@ -86,7 +88,7 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <DialogTrigger asChild>
-          <button>
+          <Link href={`/shop/${item.id}`}>
           <Card className='flex flex-col w-full items-center sm:h-96'>
           <Image src={item.image} width={300} height={300} className='sm:h-36 sm:w-36 size-72 rounded-2xl object-center object-cover'  alt='hola'/>
           <div className='flex flex-col gap-3 py-6 sm:py-3 items-center sm:items-start w-full sm:justify-normal'>
@@ -95,7 +97,7 @@ export const HoverEffect = ({
             <strong className='text-xl font-bold'>${item.price}</strong>
             </div>
           </Card>
-          </button>
+          </Link>
           </DialogTrigger>
            <DialogContent className="flex flex-col bg-white mb-36 gap-12 justify-start sm:max-h-screen h-screen w-screen sm:max-w-[848px]">
         <DialogHeader className="flex flex-col gap-3 text-left">
@@ -124,7 +126,7 @@ export const HoverEffect = ({
           </div>
         </DialogFooter>
       </DialogContent>
-          </div>
+          </Link>
           </Dialog>
       ))}
       </div>
