@@ -32,7 +32,8 @@ export class ProductController {
 	}
 
 	static async createProducts(req: Request, res: Response) {
-		const newProducts = await ProductModel.createProducts([req.body]);
+		
+		const newProducts = await ProductModel.createProducts(req.body.items);
 
 		res.status(201).json(newProducts);
 	}

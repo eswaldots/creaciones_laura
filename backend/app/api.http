@@ -4,7 +4,7 @@ GET http://localhost:1234/products
 
 ### Get product by category
 
-GET http://localhost:3000/products?category=Cheesecakes
+GET http://localhost:3000/products?category=Donuts
 
 ### Get product by id
 
@@ -19,14 +19,88 @@ GET http://localhost:3000/products/categories
 POST http://localhost:1234/products 
 Content-Type: application/json
 
-{
-    "category": "Cheesecakes",
-    "name": "Classic New York Cheesecake",
-    "previewDescription": "Rich and creamy traditional cheesecake",
-    "detailDescription": "Our Classic New York Cheesecake is a timeless favorite. Made with premium cream cheese, this dense and rich cheesecake has a smooth, velvety texture and a hint of vanilla. It's baked on a buttery graham cracker crust and finished with a light sour cream topping. Perfect for those who love a traditional, no-frills cheesecake.",
-    "image": "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "price": 3500
-  }
+{"items": [
+  {
+      "category": "Cookies",
+      "name": "Classic Chocolate Chip",
+      "previewDescription": "Traditional cookie with semi-sweet chocolate chips",
+      "detailDescription": "Our Classic Chocolate Chip cookies are a timeless favorite. Made with creamy butter, brown sugar, and a generous amount of semi-sweet chocolate chips, these cookies have a perfect balance of crispy edges and chewy centers. Each bite is filled with melty chocolate morsels and rich, buttery flavor.",
+      "image": "https://images.pexels.com/photos/230325/pexels-photo-230325.jpeg",
+      "price": 150
+    },
+    {
+      "category": "Cookies",
+      "name": "Oatmeal Raisin",
+      "previewDescription": "Chewy oatmeal cookie packed with plump raisins",
+      "detailDescription": "Our Oatmeal Raisin cookies are a comforting classic. Packed with hearty rolled oats and sweet, plump raisins, these cookies have a wonderfully chewy texture and a hint of cinnamon. They're perfect with a glass of milk or a cup of tea, offering a delightful balance of wholesome oats and natural sweetness.",
+      "image": "https://images.pexels.com/photos/5386673/pexels-photo-5386673.jpeg",
+      "price": 150
+    },
+    {
+      "category": "Cookies",
+      "name": "Double Chocolate Fudge",
+      "previewDescription": "Rich chocolate cookies with chocolate chips",
+      "detailDescription": "Our Double Chocolate Fudge cookies are a chocolate lover's dream. These indulgent cookies are made with cocoa powder in the dough and loaded with semi-sweet chocolate chips. The result is a rich, fudgy cookie with an intense chocolate flavor and a slightly crisp exterior that gives way to a soft, brownie-like center.",
+      "image": "https://images.pexels.com/photos/5386671/pexels-photo-5386671.jpeg",
+      "price": 175
+    },
+    {
+      "category": "Cookies",
+      "name": "Peanut Butter",
+      "previewDescription": "Soft cookies with creamy peanut butter",
+      "detailDescription": "Our Peanut Butter cookies are a nutty delight. Made with creamy peanut butter, these cookies have a soft, melt-in-your-mouth texture and a rich, nutty flavor. They're finished with the classic crisscross pattern on top and a sprinkle of sugar. Perfect for peanut butter enthusiasts of all ages!",
+      "image": "https://images.pexels.com/photos/5386674/pexels-photo-5386674.jpeg",
+      "price": 160
+    },
+    {
+      "category": "Cookies",
+      "name": "Snickerdoodle",
+      "previewDescription": "Soft cinnamon sugar cookies",
+      "detailDescription": "Our Snickerdoodle cookies are a cinnamon lover's favorite. These soft, chewy cookies are rolled in a mixture of cinnamon and sugar before baking, giving them a slightly crisp exterior and a burst of warm cinnamon flavor. The interior remains tender and buttery, making them irresistible with every bite.",
+      "image": "https://images.pexels.com/photos/5386675/pexels-photo-5386675.jpeg",
+      "price": 150
+    },
+    {
+      "category": "Cookies",
+      "name": "White Chocolate Macadamia",
+      "previewDescription": "Buttery cookies with white chocolate and macadamia nuts",
+      "detailDescription": "Our White Chocolate Macadamia cookies are a luxurious treat. These buttery cookies are generously studded with creamy white chocolate chips and crunchy macadamia nut pieces. The combination of sweet white chocolate and rich, tropical macadamia nuts creates a delightful contrast of flavors and textures.",
+      "image": "https://images.pexels.com/photos/5386676/pexels-photo-5386676.jpeg",
+      "price": 180
+    },
+    {
+      "category": "Cookies",
+      "name": "Lemon Shortbread",
+      "previewDescription": "Buttery shortbread cookies with lemon zest",
+      "detailDescription": "Our Lemon Shortbread cookies are a refreshing twist on a classic. These crisp, buttery cookies are infused with fresh lemon zest, giving them a bright, citrusy flavor. They're perfect with tea or as a light dessert, offering a delicate balance of sweetness and tangy lemon in every bite.",
+      "image": "https://images.pexels.com/photos/5386677/pexels-photo-5386677.jpeg",
+      "price": 160
+    },
+    {
+      "category": "Cookies",
+      "name": "Ginger Molasses",
+      "previewDescription": "Spiced cookies with a chewy texture",
+      "detailDescription": "Our Ginger Molasses cookies are a spice lover's delight. These chewy cookies are made with rich molasses and a blend of warm spices including ginger, cinnamon, and cloves. They have a crackly sugar coating that gives way to a soft, chewy interior bursting with complex flavors. Perfect for cooler weather or anytime you crave a little spice.",
+      "image": "https://images.pexels.com/photos/5386678/pexels-photo-5386678.jpeg",
+      "price": 160
+    },
+    {
+      "category": "Cookies",
+      "name": "Almond Biscotti",
+      "previewDescription": "Crunchy Italian cookies with almonds",
+      "detailDescription": "Our Almond Biscotti are traditional Italian cookies perfect for dunking. These twice-baked cookies are crunchy and packed with toasted almond slices. They have a subtle sweetness and a hint of vanilla, making them the perfect accompaniment to coffee or tea. Their firm texture holds up well to dipping, softening just enough to melt in your mouth.",
+      "image": "https://images.pexels.com/photos/5386679/pexels-photo-5386679.jpeg",
+      "price": 175
+    },
+    {
+      "category": "Cookies",
+      "name": "Thumbprint Jam",
+      "previewDescription": "Buttery cookies filled with fruit jam",
+      "detailDescription": "Our Thumbprint Jam cookies are a delightful combination of buttery shortbread and sweet fruit preserves. These classic cookies feature a tender shortbread base with a depression in the center filled with a dollop of fruity jam. We use a variety of high-quality fruit preserves, offering a perfect balance of buttery cookie and bright fruit flavor.",
+      "image": "https://images.pexels.com/photos/5386680/pexels-photo-5386680.jpeg",
+      "price": 170
+    }
+] }
 
 
 ### Create category
@@ -35,7 +109,7 @@ POST http://localhost:1234/products/categories
 content-Type: application/json
 
 {
-  "name": "Cheesecakes"
+  "name": "Cookies"
 }
 
 ### Update product

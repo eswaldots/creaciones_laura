@@ -70,10 +70,10 @@ export class ProductModel {
 		],
 	) {
 		try {
-			for (let i = 0; i < input.length; i++) {
-				const { name, price, category, detailDescription, previewDescription, image } = input[i];
+			input.forEach(async (product) => {
+				const { name, price, category, detailDescription, previewDescription, image } = product;
 
-				const newProduct = await prisma.product.create({
+				await prisma.product.create({
 					data: {
 						name: name,
 						price: price,
@@ -85,9 +85,7 @@ export class ProductModel {
 						},
 					},
 				});
-
-				return newProduct;
-			}
+			});
 		} catch (error) {
 			console.log(error)
 			return {message: 'Unexpected error'};

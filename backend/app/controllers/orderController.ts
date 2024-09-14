@@ -18,6 +18,7 @@ export class OrderController {
 
 	static async createOrder(req: Request, res: Response) {
 		try {
+			
 			console.log(Date.now())
 			const order = await OrderModel.createOrder(req.body);
 
