@@ -18,7 +18,7 @@ const data: Array<Data> = [
   {
     category: "Donuts",
     title: "Indulge in heavenly donuts",
-    src: "/categories/donuts.png",
+    src: "/categories/donuts.webp",
     link: "/shop?search=Donuts",
   },
   {

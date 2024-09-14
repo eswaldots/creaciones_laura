@@ -25,12 +25,8 @@ export class ProductModel {
 					},
 				},
 			});
-			const productsWithURL = products.map((product: any) => ({
-				...product,
-				image: `${process.env.BASE_URL}/images/${product.image}`,
-			}));
-
-			return productsWithURL;
+			
+			return products;
 		}
 
 		const products : string[] = await prisma.product.findMany();
@@ -135,9 +131,9 @@ export class ProductModel {
 	}
 
 	static async deleteProduct(id: string) {
-		const deletedProduct = await prisma.product.delete({
+		const deleteProduct = await prisma.product.delete({
 			where: {
-				id: id,
+				id: Number(id),
 			},
 		});
 	}

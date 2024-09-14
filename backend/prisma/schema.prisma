@@ -27,7 +27,7 @@ model Product {
   detailDescription String?
   price Int 
   category Category? @relation(fields: [categoryName] ,references: [name])
-  categoryName String
+  categoryName String?
   image String @default("")
   orderItems OrderItem[]
 }
@@ -48,7 +48,7 @@ model OrderItem {
   id String @id @default(uuid())
   order Order? @relation(fields: [orderId], references: [id])
   orderId String
-  product Product @relation(fields: [productName], references: [name])
+  product Product @relation(fields: [productName], references: [name], onDelete: Cascade)
   quantity Int
   productImage String?
   productName String

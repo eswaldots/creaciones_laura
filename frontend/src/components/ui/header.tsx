@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import ShopMenu from "./shop-menu"
 import ShopBtn from "./shop-btn"
+import React from "react"
 
 export default function Header() {
 
@@ -110,7 +111,7 @@ export default function Header() {
   )
 }
 
-function MenuIcon(props) {
+function MenuIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -132,7 +133,7 @@ function MenuIcon(props) {
 }
 
 
-function MountainIcon(props) {
+function MountainIcon(props : React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

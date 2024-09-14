@@ -19,14 +19,14 @@ GET http://localhost:3000/products/categories
 POST http://localhost:1234/products 
 Content-Type: application/json
 
-{  
-  "category": "Cheesecakes",
-"name":"Lemon cheesecake",
-         "previewDescription":"A cheesecake made of lemon",
-     "detailDescription":"Cheesecake is a sweet dessert consisting of one or more layers. The main, and thickest layer, consists of a mixture of soft, fresh cheese (typically cream cheese or ricotta), eggs, and sugar; if there is a bottom layer it often consists of a crust or base made from crushed cookies (or digestive biscuits), graham crackers, pastry, or sponge cake. It may be baked or unbaked (usually refrigerated). Cheesecake is usually sweetened with sugar and may be flavored or topped with fruit, whipped cream, nuts, cookies, fruit sauce, and/or chocolate syrup. Cheesecake can be prepared in many flavors, such as strawberry, pumpkin, key lime, chocolate, Oreo, chestnut, or toffee.",
-         "image":"lemoncheese_cake.jpg",
-         "price": 15
-      }
+{
+    "category": "Cheesecakes",
+    "name": "Classic New York Cheesecake",
+    "previewDescription": "Rich and creamy traditional cheesecake",
+    "detailDescription": "Our Classic New York Cheesecake is a timeless favorite. Made with premium cream cheese, this dense and rich cheesecake has a smooth, velvety texture and a hint of vanilla. It's baked on a buttery graham cracker crust and finished with a light sour cream topping. Perfect for those who love a traditional, no-frills cheesecake.",
+    "image": "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "price": 3500
+  }
 
 
 ### Create category
@@ -46,6 +46,11 @@ Content-Type: application/json
 {  
          "image":"carrot_cake.jpg"
       }
+
+### Delete product
+
+DELETE http://localhost:1234/products/1
+
 
 ### Get orders
 

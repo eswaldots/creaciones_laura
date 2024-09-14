@@ -9,7 +9,7 @@ import Footer from "@/components/ui/footer"
 export default function Home() {
   return (
     <>
-    <main className="flex flex-col overflow-y-auto mt-20 gap-24 antialased overflow-x-hidden text-white w-screen min-h-screen">
+    <main className="flex flex-col overflow-y-auto mt-20 gap-24 antialased overflow-x-hidden text-white max-w-screen min-h-screen">
     <Presentation/>
     <Categories/>
     <BestProducts/>
