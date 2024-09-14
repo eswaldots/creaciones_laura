@@ -7,8 +7,8 @@ export default function RootLayout({
 }) {
     return (
         <div>
-            {children}
             {product}
+            {children}
         </div>
     )
 }

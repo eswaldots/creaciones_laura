@@ -1,12 +1,9 @@
+"use client"
+
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image"
 import { useState } from "react";
-import { Dialog, DialogFooter, DialogContent, DialogTrigger, DialogHeader, DialogTitle, DialogDescription, DialogClose } from "./dialog";
-import { Button } from "./button"
-import Counter from "./counter"
-import { useStore } from "@/hooks/useStore"
-import { useToast } from "@/components/ui/use-toast"
 import Link from "next/link";
 
 export const HoverEffect = ({
@@ -25,36 +22,6 @@ export const HoverEffect = ({
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const { toast } = useToast();
-
-  const [itemCount, setItemCount] = useState(1);
-
-  const updateProducts = useStore((state) => state.updateProducts);
-
-  const AddProduct = (name: string, quantity: number, image: string,  total: number) => {
-    try {
-    updateProducts(
-    {
-      productName: name,
-      productImage: image,
-      quantity: quantity,
-      total: total
-    }
-      )
-    toast({
-      title: `Added ${name} to cart`,
-      description: `${quantity} units, $${total}`
-    })
-  }
-
-    catch(error) {
-      toast({
-        title: "An error ocurred adding a item to the cart",
-        description: `Error: ${error}`
-      })
-    }
-  }
-
   return (
     <div
       className={cn(
@@ -63,7 +30,6 @@ export const HoverEffect = ({
       )}
     >
       {items.map((item, idx) => (
-        <Dialog onOpenChange={(e) => setItemCount(1)}>
         <Link href={`/shop/${item.id}`}
           key={item?.image}
           className="relative group text-neutral-800 block p-2 h-full w-full"
@@ -87,7 +53,6 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <DialogTrigger asChild>
           <Link href={`/shop/${item.id}`}>
           <Card className='flex flex-col w-full items-center sm:h-96'>
           <Image src={item.image} width={300} height={300} className='sm:h-36 sm:w-36 size-72 rounded-2xl object-center object-cover'  alt='hola'/>
@@ -98,36 +63,7 @@ export const HoverEffect = ({
             </div>
           </Card>
           </Link>
-          </DialogTrigger>
-           <DialogContent className="flex flex-col bg-white mb-36 gap-12 justify-start sm:max-h-screen h-screen w-screen sm:max-w-[848px]">
-        <DialogHeader className="flex flex-col gap-3 text-left">
-          <DialogTitle className='text-2xl font-bold'>{item.name}</DialogTitle>
-          <div className='w-full bg-primary h-[1px]'/>
-        </DialogHeader>
-        <div className="flex flex-col overflow-y-scroll sm:flex-row gap-12 items-start">
-        <Image width={500} height={500} src={item.image} alt='Cake image' className='sm:w-[50%] object-fill rounded-2xl'/>
-        <section className='flex flex-col gap-3 sm:w-[50%]'>
-        <section className='flex flex-col sm:w-96'>
-        <strong className='text-2xl font-bold'>${item.price}</strong>
-        <h1 className='text-2xl font-semibold opacity-80'>{item.name}</h1>
-        </section>
-        <p className='opacity-50'>{item.detailDescription}</p>
-        </section>
-        </div>
-        <DialogFooter className='fixed left-0 bottom-0 p-6 rounded-b-2xl w-full bg-white flex flex-col gap-3'>
-          <div className='flex flex-col w-full gap-6'>
-          <div className='w-full bg-primary h-[1px]'/>
-          <div className='flex flex-row sm:gap-12 gap-3 justify-end'>
-          <Counter setCount={setItemCount} count={itemCount}/>
-          <DialogClose asChild>
-          <Button onClick={(e) => AddProduct(item.name, itemCount, item.image, item.price * itemCount)} className='text-xl font-bold w-48 h-12'>Add to cart ${item.price * itemCount}</Button>
-          </DialogClose>
-          </div>
-          </div>
-        </DialogFooter>
-      </DialogContent>
           </Link>
-          </Dialog>
       ))}
       </div>
   );

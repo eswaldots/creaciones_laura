@@ -8,7 +8,7 @@ GET http://localhost:3000/products?category=Cheesecakes
 
 ### Get product by id
 
-GET http://localhost:3000/products/1
+GET http://localhost:1234/products/1
 
 ### Get all categories
 

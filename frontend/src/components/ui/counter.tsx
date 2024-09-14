@@ -1,3 +1,5 @@
+"use client";
+
 import { Dispatch, SetStateAction } from "react";
 import { Button } from "./button";
 import { LeftArrow, RightArrow } from "@/icons/arrows";
