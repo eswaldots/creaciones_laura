@@ -7,6 +7,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "./button";
 import LeftArrow from "../icons/LeftArrow";
+import { useStore } from "@/hooks/useStore";
+import { toast } from "react-toastify";
 
 export const HoverEffect = ({
   items,
@@ -23,6 +25,29 @@ export const HoverEffect = ({
   className?: string;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const updateProducts = useStore((state) => state.updateProducts);
+  
+  const addItemToCart = async (
+    name: string,
+    quantity: number,
+    image: string,
+    total: number
+  ) => {
+    try {
+      updateProducts({
+        productName: name,
+        productImage: image,
+        quantity: quantity,
+        total: total,
+      });
+  
+      toast.success(`Added ${name} to cart`);
+  
+    } catch (error) {
+      toast.error("An error ocurred adding a item to the cart");
+    }
+  };
 
   return (
     <div
@@ -63,7 +88,7 @@ export const HoverEffect = ({
             <p className='opacity-60 text-left text-sm mt-3 mb-6'>{item.previewDescription}</p>
             <section className="flex flex-row items-center w-full justify-between">
             <strong className='text-4xl font-bold'>${item.price / 100}</strong>
-            <Button className='flex justify-center bg-primary text-white py-6 font-medium px-6 rounded-full'>Add to cart
+            <Button onClick={() => addItemToCart(item.name, 1, item.image, item.price)} className='flex justify-center bg-primary text-white py-6 font-medium px-6 rounded-full'>Add to cart
               <LeftArrow/>
             </Button>
             </section>
