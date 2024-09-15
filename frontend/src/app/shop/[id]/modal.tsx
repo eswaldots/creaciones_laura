@@ -60,26 +60,28 @@ export default function Modal({ item }: Props) {
   return (
     <Dialog defaultOpen={true} open={true} onOpenChange={(e) => router.back()}>
       <DialogOverlay>
-        <DialogContent className="flex flex-col bg-white mb-36 gap-12 justify-start sm:max-h-screen h-screen w-screen sm:max-w-[848px]">
+        <DialogContent className="flex flex-col overflow-y-auto no-scrollbar bg-white mb-36 gap-12 justify-start sm:max-h-screen h-screen w-screen sm:max-w-[848px]">
           <DialogHeader className="flex flex-col gap-3 text-left">
             <DialogTitle className="text-2xl font-bold">
               {item.name}
             </DialogTitle>
             <div className="w-full bg-primary h-[1px]" />
           </DialogHeader>
-          <div className="flex flex-col overflow-y-scroll sm:flex-row gap-12 items-start">
+          <div className="flex flex-col overflow-y-auto no-scrollbar sm:flex-row gap-12 items-start">
+            <div className='overflow-hidden'>
             <Image
               width={500}
               height={500}
               src={item.image}
               alt="Cake image"
-              className="sm:w-[50%] object-fill rounded-2xl"
+              className="w-full h-full object-fill rounded-2xl" 
             />
+            </div>
             <section className="flex flex-col gap-3 sm:w-[50%]">
               <section className="flex flex-col sm:w-96">
-                <strong className="text-2xl font-bold">${item.price}</strong>
+                <strong className="text-2xl font-bold">${item.price / 100}</strong>
                 <h1 className="text-2xl font-semibold opacity-80">
-                  {item.name}
+                {item.name}
                 </h1>
               </section>
               <p className="opacity-50">{item.detailDescription}</p>
@@ -96,7 +98,7 @@ export default function Modal({ item }: Props) {
                     addItemToCart(item.name, count, item.image, item.price * count)
                   }
                 >
-                  <span className="text-xl font-bold">Add to cart ${item.price * count}</span>
+                  <span className="text-xl font-bold">Add to cart ${item.price * count / 100}</span>
                 </Button>
               </div>
             </div>

@@ -6,7 +6,7 @@ export default function RootLayout({
   product: React.ReactNode;
 }) {
     return (
-        <div>
+        <div className="max-w-screen">
             {product}
             {children}
         </div>
