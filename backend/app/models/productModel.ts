@@ -43,12 +43,7 @@ export class ProductModel {
 				id: id,			},
 		});
 
-		const productWithURL = {
-			...product,
-			image: `${process.env.BASE_URL}/images/${product.image}`,
-		};
-
-		return productWithURL;
+		return product;
 	}
 
 	static async getAllCategories(): Promise<string[]> {

@@ -27,13 +27,13 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2  py-10",
         className
       )}
     >
       {items.map((item, idx) => (
         <Link href={`/shop/${item.id}`}
-          key={item?.image}
+          key={item.id}
           className="relative group text-neutral-800 block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -56,11 +56,11 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <section>
-          <Card className='flex flex-col w-full items-center sm:h-96'>
-          <Image src={item.image} width={300} height={300} className='sm:h-36 sm:w-36 size-72 rounded-2xl object-center object-cover' alt='hola'/>
-          <div className='flex flex-col py-6 sm:py-3 items-start w-full sm:justify-normal'>
-            <h1 className='text-2xl font-bold'>{item.name}</h1>
-            <p className='opacity-60 text-left mt-3 mb-6'>{item.previewDescription}</p>
+          <Card className='flex flex-col w-full items-center justify-between p-1 sm:h-[400px]'>
+          <Image src={item.image} width={300} height={300} className='sm:w-full sm:h-48 size-72 rounded-2xl object-center object-cover' alt='hola'/>
+          <div className='flex flex-col max-w-full py-6 sm:py-3 items-start w-full sm:justify-between'>
+            <h1 className='text-2xl font-bold overflow-hidden max-w-[300px] text-ellipsis whitespace-nowrap'>{item.name}</h1>
+            <p className='opacity-60 text-left text-sm mt-3 mb-6'>{item.previewDescription}</p>
             <section className="flex flex-row items-center w-full justify-between">
             <strong className='text-4xl font-bold'>${item.price / 100}</strong>
             <Button className='flex justify-center bg-primary text-white py-6 font-medium px-6 rounded-full'>Add to cart

@@ -8,8 +8,8 @@ type props = {
 export default function ListCategories({items, currentCategory} : props) {
 
 	const listCategories = items.map((item, index) => 
-		item.name === currentCategory ? <li className="flex items-center"><input type='checkbox' className='size-5' checked={true} key={item.id}/> <span className='font-semibold'>{item.name}</span></li> : 
-		<Link href={`?search=${item.name}`} className="flex items-center"><input className='size-5' type='checkbox' checked={false} key={item.id}/> <span className='font-normal opacity-50'>{item.name}</span></Link>
+		item.name === currentCategory ? <li key={index} className="flex items-center"><input type='checkbox' className='size-5' checked={true} key={item.id}/> <span className='font-semibold'>{item.name}</span></li> : 
+		<Link href={`?search=${item.name}`} key={index} className="flex items-center"><input className='size-5' type='checkbox' checked={false} key={item.id}/> <span className='font-normal opacity-50'>{item.name}</span></Link>
 		)
 
 	return (
