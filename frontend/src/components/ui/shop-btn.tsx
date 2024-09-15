@@ -16,7 +16,7 @@ export default function ShopBtn() {
 
 	const products = useStore((state) => state.products)
 
-	const listProducts = useMemo(() => products.map((product, index : number) => <OrderItem key={product.productImage} name={product.productName} image={product.productImage} quantity={product.quantity} total={product.total}></OrderItem>), [products])
+	const listProducts = useMemo(() => products.map((product, index : number) => <OrderItem key={product.productImage} name={product.productName} image={product.productImage} quantity={product.quantity} total={product.total / 100}></OrderItem>), [products])
 
 	return (
 		<>
@@ -33,7 +33,7 @@ export default function ShopBtn() {
 		> 
 			<Card className={'flex flex-col opacity-100 justify-between fixed inset-x-0 mx-auto lg:inset-x-auto lg:mx-0 lg:right-36 lg:top-24 rounded-2xl z-50 h-[494px] w-full sm:w-[447px] drop-shadow-2xl bg-white'}>
 				<CardHeader className='w-full rounded-t-2xl h-12 bg-primary'/>
-				<CardContent className="flex flex-col items-start p-6 gap-6 justify-start h-full">{products.length >= 1 ? listProducts : <h1 className='text-2xl font-bold text-center'>You don't ordered anything to show</h1>}</CardContent>
+				<CardContent className="flex flex-col items-start p-6 gap-6 justify-start h-full">{products.length >= 1 ? listProducts : <h1 className='text-2xl font-bold text-center'>You don&apos;t ordered anything to show</h1>}</CardContent>
 				<CardFooter className='flex flex-row justify-between'>
 					<Button onClick={(e) => {router.push('/payment'), setIsOpen(false)}} className='w-full h-12'>Pay</Button>
 				</CardFooter>

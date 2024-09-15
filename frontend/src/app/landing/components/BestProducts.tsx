@@ -3,21 +3,23 @@
 import React from "react";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import Image from "next/image";
+import { m } from "framer-motion";
 
 const content = [
   {
-    title: "Avocado Cake",
+    title: "Vanilla Bean Celebration Cake",
     description:
-      "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
+      "Our Vanilla Bean Celebration Cake is a festive delight. Layers of light, fluffy vanilla cake are filled and frosted with our signature vanilla bean buttercream. The cake is then adorned with a rainbow of sprinkles, making it perfect for birthdays or any joyous occasion. Each bite is a burst of pure, classic vanilla flavor.",
     content: (
       <Image
-        src="/categories/cake.jpeg"
+        src="https://images.pexels.com/photos/1721932/pexels-photo-1721932.jpeg"
         width={300}
         height={300}
         className="h-full w-full object-cover"
         alt="linear board demo"
       />
     ),
+    price: 32,
   },
   {
     title: "Leemon cheesecake",
@@ -26,7 +28,7 @@ const content = [
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/linear.webp"
+          src="https://media.istockphoto.com/id/1344848431/photo/slice-of-lemmon-dessert.webp?b=1&s=612x612&w=0&k=20&c=BsYJE33LNYDh3DSXFZ3ZgEuUm6B08SZyb3pbwWe0MEw="
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -34,26 +36,41 @@ const content = [
         />
       </div>
     ),
+    price: 39,
   },
   {
-    title: "Version control",
+    title: "Pumpernickel Rye",
     description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      "Our Pumpernickel Rye is a traditional German-style bread made with coarsely ground rye flour. This dense, dark bread has a robust flavor and a slightly sweet note from the addition of molasses. It's packed with fiber and has a long shelf life. Perfect for open-faced sandwiches or paired with strong cheeses and smoked meats.",
     content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
-        Version control
+      <div className="h-full w-full  flex items-center justify-center text-white">
+        <Image
+          src="https://images.pexels.com/photos/209206/pexels-photo-209206.jpeg"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
       </div>
     ),
+    price: 7,
   },
   {
-    title: "Running out of content",
+    title: "Pineapple Upside-Down Cake",
     description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      "Our Pineapple Upside-Down Cake is a retro favorite. A moist, buttery cake is baked over a layer of caramelized brown sugar, pineapple rings, and maraschino cherries. When inverted, the fruit creates a beautiful and delicious topping. The cake is then glazed for extra moisture and shine. It's a perfect balance of sweet and tangy flavors.",
     content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-        Running out of contents
+      <div className="h-full w-full  flex items-center justify-center text-white">
+        <Image
+          src="https://images.pexels.com/photos/6163264/pexels-photo-6163264.jpeg"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
       </div>
     ),
+    price: 33,
   },
 ];
 

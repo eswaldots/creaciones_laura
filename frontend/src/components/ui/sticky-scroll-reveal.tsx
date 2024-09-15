@@ -4,6 +4,7 @@ import { useMotionValueEvent, useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "./button";
+import Link from "next/link";
 
 export const StickyScroll = ({
   content,
@@ -12,6 +13,7 @@ export const StickyScroll = ({
   content: {
     title: string;
     description: string;
+    price: number;
     content?: React.ReactNode | any;
   }[];
   contentClassName?: string;
@@ -80,15 +82,14 @@ export const StickyScroll = ({
                <span className='opacity-50'> {item.description}</span> 
               </motion.p>
               <div className="flex flex-row items-center gap-6">
-              <strong className='text-xl'>100$</strong>
-                                    <Button size='lg' style={{
+              <strong className='text-xl'>{item.price}$</strong>
+                                    <Link href={`/shop/`} className='px-6 py-2 rounded-md hover:-translate-y-2 transition flex items-center justify-center text-white' style={{
                 backgroundColor: buttonColors[activeCard % backgroundColors.length]
-              }} >Shop now</Button>  
+              }} >Shop now</Link>  
               </div>
             </div>
           )), [buttonColors])
 
-  console.log(backgroundColors[activeCard % backgroundColors.length]);
   return (
     <motion.div
           animate={{
