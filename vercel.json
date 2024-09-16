@@ -1,7 +1,10 @@
 {
     "version": 2,
+    "env": {
+      "DOTENV_CONFIG_PATH": "./.env"
+    },
     "builds": [
-      { "src": "/backend/dist/app.js", "use": "@vercel/node", "config": { "includeFiles": ["dist/**"] } },
+      { "src": "/backend/package.json", "use": "@vercel/node", "config": { "includeFiles": ["dist/**"] } },
       { "src": "/frontend/package.json", "use": "@vercel/next" }
     ],
     "routes": [
