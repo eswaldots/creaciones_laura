@@ -1,11 +1,11 @@
 {
     "version": 2,
     "builds": [
-      { "src": "./backend/package.json", "use": "@vercel/node" },
+      { "src": "./backend/package.json", "use": "@vercel/node", "config": { "includeFiles": ["dist/**"] } },
       { "src": "./frontend/package.json", "use": "@vercel/next" }
     ],
     "rewrites": [
-      { "source": "/api/(.*)", "destination": "/backend/dist/app.js" },
+      { "source": "/api/(.*)", "destination": "./backend/dist/app.js" },
       { "source": "(.*)", "destination": "/" }
     ]
   }
