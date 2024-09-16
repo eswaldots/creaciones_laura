@@ -18,7 +18,7 @@ export default function PaymentDetails({ total }: { total: number }) {
 			<hr />
 			<section className="flex justify-between items-center w-full">
 				<h1 className="text-xl font-bold">Total:</h1>
-				<strong className="opacity-50">${total}</strong>
+				<strong className="opacity-50">${total / 100}</strong>
 			</section>
 			<Button
 				type="submit"
