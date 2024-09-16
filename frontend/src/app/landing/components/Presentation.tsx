@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Presentation() {
 	return (
@@ -11,9 +12,9 @@ export default function Presentation() {
 						Customized cakes, treats and every thing sweet for all
 						your special moments.
 					</span>
-					<Button className='text-xl h-12 w-36'>Shop now</Button>
+					<Link href={'/shop'} className='flex items-center justify-center rounded-md text-white bg-primary hover:-translate-y-2 transition text-xl h-12 w-36'>Shop now</Link>
 				</div>
-				<img className="lg:flex hidden rounded-full w-[422px]" src="donut.gif" />
+				<Image alt='donut' width={300} height={300}  className="lg:flex hidden rounded-full w-[422px]" src="/donut.gif" />
 			</section>
 		</Card>
 	);
