@@ -1,4 +1,5 @@
 import express, { Application, Response, Request } from "express";
+import { VercelRequest, VercelResponse } from '@vercel/node';
 import { ProductsRouter } from './routes/productsRouter'
 import { OrdersRouter } from "./routes/ordersRouter";
 import { statusChecker } from "./middlewares/statusChecker";
@@ -44,4 +45,6 @@ app.listen(defaultPort, () => {
 	console.log('Server listening on port http://localhost:'+ defaultPort)
 })
 
-export default app;
+export default (req: VercelRequest, res: VercelResponse) => {
+	app(req as any, res as any);
+  };
