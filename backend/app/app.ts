@@ -30,7 +30,7 @@ app.use('/images', (req: Request, res: Response) => {
     res.sendFile(__dirname + '/src/public' + req.path);
 })
 
-app.get('/api', (req: Request, res: Response) => {
+app.get('/api/hello', (req: Request, res: Response) => {
 	res.send('Hello World!')
 })
 
@@ -38,6 +38,7 @@ app.use('/orders', OrdersRouter)
 app.use('/products', ProductsRouter)
 
 app.use((req: Request, res: Response) => {
+	console.log(`Request ${req.method} ${req.url}`)
 	res.status(404).send('Not Found')	
 })
 
