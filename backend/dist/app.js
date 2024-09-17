@@ -26,6 +26,9 @@ app.disable('x-powered-by');
 app.use('/images', (req, res) => {
     res.sendFile(__dirname + '/src/public' + req.path);
 });
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
 app.use('/orders', ordersRouter_1.OrdersRouter);
 app.use('/products', productsRouter_1.ProductsRouter);
 app.use((req, res) => {
