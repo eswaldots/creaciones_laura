@@ -3,5 +3,4 @@ node_modules
 .env
 # Ignore express logs
 logs
-dist
 node_modules
