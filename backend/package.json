@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node api/index.js",
+    "start": "node dist/app.js",
     "dev": "ts-node-dev app/app.ts",
     "build": "tsc",
     "deploy": "vercel deploy",
