@@ -26,7 +26,7 @@ app.disable('x-powered-by')
 
 // Serve static files of products
 
-app.use('/images', (req: Request, res: Response) => {
+app.use('/api/images', (req: Request, res: Response) => {
     res.sendFile(__dirname + '/src/public' + req.path);
 })
 
@@ -34,8 +34,8 @@ app.get('/api/hello', (req: Request, res: Response) => {
 	res.send('Hello World!')
 })
 
-app.use('/orders', OrdersRouter)
-app.use('/products', ProductsRouter)
+app.use('/api/orders', OrdersRouter)
+app.use('/api/products', ProductsRouter)
 
 app.use((req: Request, res: Response) => {
 	console.log(`Request ${req.method} ${req.url}`)
