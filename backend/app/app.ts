@@ -29,7 +29,7 @@ app.use('/images', (req: Request, res: Response) => {
     res.sendFile(__dirname + '/src/public' + req.path);
 })
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/api', (req: Request, res: Response) => {
 	res.send('Hello World!')
 })
 
