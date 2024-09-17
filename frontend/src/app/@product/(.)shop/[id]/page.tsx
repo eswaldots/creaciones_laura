@@ -1,7 +1,6 @@
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Loader from "@/components/ui/loader";
 import { FetchProduct } from "@/lib/data/fetch-product";
-import Modal from "../../[id]/modal";
+import Modal from "../../../shop/[id]/modal";
 
 interface PageProps {
   params: { id: string };
