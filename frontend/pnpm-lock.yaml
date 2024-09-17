@@ -38,9 +38,6 @@ importers:
       '@types/three':
         specifier: ^0.167.1
         version: 0.167.1
-      Collapse:
-        specifier: link:@mui/material/Collapse
-        version: link:@mui/material/Collapse
       axios:
         specifier: ^1.7.3
         version: 1.7.3
