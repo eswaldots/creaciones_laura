@@ -5,7 +5,7 @@ import { statusChecker } from "./middlewares/statusChecker";
 import cors from "cors"
 import dotenv from "dotenv"
 
-const app : Application = express();
+export const app : Application = express();
 
 const defaultPort = process.env.PORT ?? 1234
 
@@ -43,5 +43,3 @@ app.use((req: Request, res: Response) => {
 app.listen(defaultPort, () => {
 	console.log('Server listening on port http://localhost:'+ defaultPort)
 })
-
-export default app

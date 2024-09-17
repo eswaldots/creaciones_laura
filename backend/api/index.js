@@ -1,6 +1,6 @@
-import app from '../dist/app.js';
+const app = require('../dist/app');
 
-export default async function handler(req, res) {
-    await app(req, res);
-  }
+module.exports = (req, res) => {
+    app(req, res);
+}
 
